@@ -1,0 +1,271 @@
+:root{/*Pseudo-clase: Selecciona el elemento raiz del documento(HTML)*/
+  --blanco: #ffffff;/*root puede ser util para variables globales en css.*/
+  --oscuro: #212121;
+  --primario: #ffc107;
+  --secundario: #0097a7;
+  --red: #e20c0c;
+  --grisClaro:#f50303;
+}
+/* Globales **************************************/
+html{
+  font-size: 62.5%;
+  box-sizing: border-box;
+  /* Movimiento vertical */
+}
+img{
+  width: 100%;
+}
+/* Scroll Snap ******************************** */
+/* .navegacion-principal,
+.servicios,
+.formulario{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+} */
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body{
+  font-size: 16px; /* 1rem = 10px */
+  font-family: 'Krub', sans-serif;
+  background-image: linear-gradient(to top,var(--grisClaro)0%,var(--blanco)100%);
+}
+.contenedor{
+  max-width: 120rem;/*Toma 1200px como maximo sino toma el 100% por defecto.*/
+  /*margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;*/
+  /*margin: 0 auto 0 auto;*/
+  margin: 0 auto;/*Es la separación despues de donde termina el elemento*/
+}
+.boton{
+  background-color: var(--secundario);/* Color de fondo */
+  color: var(--blanco);/* Color de letra */
+  padding: 1rem 3rem;/* Relleno del contenido */
+  margin-top: 3rem;/* Margen suparior */
+  font-size: 2rem;/* Tamaño de letra */
+  text-decoration: none;/* Decoracion del texto */
+  text-transform: uppercase;/* Tipo de letra = Mayuscula o Minuscula */
+  font-weight: bold;/* Formato de la letra = negrita */
+  border-radius: .5rem;/* Redondear bordes */
+  width: 90%;/* Ancho del contenido */
+  text-align: center;/* Alineacion del texto = centrado */
+  border: none;/* Quitar bordes del contenido */
+}
+@media(min-width:768px){
+  .boton{
+    width: auto;
+  }
+}
+.boton:hover{
+  background-color: var(--primario);
+  color: var(--oscuro); 
+  cursor: pointer;
+}
+.sombra{
+  box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.48);
+  background-color: var(--blanco);
+  padding: 2rem;
+  border-radius: 1rem;
+}
+/* Tipografia **********************************/
+h1{/*Design system = es cojunto de patrones interconectados. Base para tipografia*/
+  font-size: 3.8rem;
+}
+h2{
+  font-size: 2.8rem;
+}
+h3{
+  font-size: 1.8rem;
+}
+h1,h2,h3{
+  text-align: center;
+}
+/* Titulos **************************************/
+.titulo span{
+  font-size: 2rem;
+}
+/* Utilidades ******************* */
+.w-sm-100{
+ width: 100%; 
+}
+@media(min-width:768px){
+  .w-sm-100{
+    width: auto;
+  }
+}
+.flex{
+ display: flex;
+}
+.alinear-derecha{
+ justify-content: flex-end;
+}
+
+/* Navegación principal *************************/
+.nav-bg{
+  background-color: var(--secundario);
+}
+
+.navegacion-principal{  
+  display: flex;/*Nos habilita flexBox y sus propiedades*/  
+  flex-direction: column;  
+}
+/*Esto va a modificar nuestra página según la resolución del ancho*/
+/*480px = telefono, 768px = tablet, 1140px = laptop o PC escritorio*/
+@media (min-width: 768px) {
+  .navegacion-principal{
+    flex-direction: row;
+    justify-content: space-between;/*Colocar espacios entre los elementos*/
+  }
+}
+
+.navegacion-principal a{
+  display: block;
+  text-align: center;
+  color: var(--blanco);
+  text-decoration: none;/*line-through = ofertas*/
+  font-size: 2rem;
+  font-weight: bold;/*Letra en negrita*/
+  padding: 1rem;
+}
+
+.navegacion-principal a:hover{/*Pseudo-clase o evento*/
+  background-color: var(--primario);
+  color: var(--oscuro);
+}
+/* Hero ************************************************/
+.hero{
+  background-image: url(../img/hero.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 480px;/*Alto del contenido*/
+  /*padding: 20px;500-480*/
+  position: relative;/*El padre siempre tiene que tener la posición relativa(Coordenas)*/
+  margin-bottom: 2rem;
+}
+.contenido-hero{
+  position: absolute;/*Para que el hijo se pueda posicionar de forma absoluta(C)*/
+  background-color: rgba(0, 0, 0, 0.7);/*valores del alfa 0.1 0.2 0.3...0.9 1*/
+  width: 100%;
+  height: 100%;
+
+  display: flex;/*Este código es para centrado vertical y horizontal*/
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenido-hero H2, 
+.contenido-hero p{
+  color: var(--blanco);
+}
+
+.contenido-hero
+.ubicacion{
+  display: flex;/*posicion horizontal*/
+  align-items: center;/*posicion vertical*/
+}
+/* Servicios **************************************/
+@media(min-width:768px){
+  .servicios{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem;
+  }
+}
+.servicio{
+display: flex;/* Distribucion de elementos */
+flex-direction: column;/* Distribucion vertical */
+align-items: center;/* Centrado vertical */
+}
+.servicio h3{
+  color: var(--secundario);/* Color de la letra */
+  font-weight: 400;/* Tipo de letra */
+}
+.servicio p{
+ line-height: 2;/* Interlineado */
+ text-align: center;/* Centrado del parrafo */
+}
+.servicio .iconos{
+  height: 15rem;/* Altura */
+  width: 15rem;/* Ancho */
+  background-color: var(--primario);/* Color de fondo */
+  border-radius: 50%;/* Borde redondeado */
+  display: flex;/* Distribucion de los elementos */
+  justify-content: space-evenly;/* Orden de los elementos */
+  align-items: center;/* Centrado de los elementos */
+}
+/* Contacto ************************* */
+.formulario{
+background-color: var(--secundario);/* Color de fondo */
+width: min(60rem, 100%);/* Utiliza el valor mas pequeño.(MediaQ) */
+margin: 0 auto;/* Se usa para centrar si no tenemos flex o grid */
+padding: 2rem;/* Relleno del contenido */
+border-radius: 3rem;/* Redondeo de esquinas */
+}
+.formulario fieldset{
+  border: none;/* Quitar borde */
+}
+.formulario legend{
+  text-align: center;/* Centrar texto */
+  font-size: 1.8rem;/* Tamaño del texto */
+  text-transform: uppercase;/* Cambiar maysculas y minusculas */
+  font-weight: 700;/* Formato del texto */
+  margin-bottom: 2rem;/* Margen inferior del texto */
+  color: var(--primario);/* Color del texto */
+}
+@media(min-width: 768px){
+  .contenedor-campos{
+   display: grid;/* Orden de los elementos */
+   grid-template-columns: 50% 50%;/* división de bloques */
+   grid-template-rows: auto auto 20rem;/* Ancho de la fila */
+   column-gap: 1rem;/* Separacion de columnas */
+  }
+  .campo:nth-child(3),/* nth-child las divisiones */
+  .campo:nth-child(4){/* nth-child las divisiones */
+    grid-column: 1/3;/* une las columnas */
+  }
+}
+
+.campo{
+ margin-bottom: 1rem;/* Margen inferior */
+}
+.campo label{
+ color: var(--blanco);/* Color del texto */
+ font-weight: bold;/* Tipo de letra = negrita */
+ margin-bottom: .5rem;/* Margen de la parte inferior */
+ display: block;/* Tipo de orden */
+}
+.campo textarea{
+  height: 20rem;/* Alto del contenidfo */
+}
+.imput-text{
+ width: 100%;/* Ancho del contenido */
+ border: none;/* Modificar borde = quitar */
+ padding: 1.5rem;/* Relleno alrededor del contenido */
+ border-radius: 1rem;/* Redondear las esquinas */
+}
+/* Footer ************************************* */
+.footer{
+ text-align: center;/* Alineacion del texto = centrado */
+}
+/* Nosotros ******************** */
+.nosotros{
+  display: grid;/* Distribucion de los elementos */
+  grid-template-rows: repeat(2,auto);/* Numero de filas */
+}
+@media(min-width:768px){
+.nosotros{
+    grid-template-columns: repeat(2,1fr);/* Numero de columnas */
+    column-gap: 2rem;/* Espacio entre columnas */
+}
+}
+.nosotros__imagen{
+  grid-row: 1/2;/* Numero de filas */
+}
+@media(min-width:768px){
+.nosotros__imagen{
+    grid-column: 2/3;/* Numero de columnas */
+}
+}
